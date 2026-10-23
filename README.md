@@ -21,3 +21,9 @@ Tasks stay in the current browser's localStorage and do not sync between devices
 - `index.html` — page structure
 - `styles.css` — responsive styling
 - `app.js` — application logic
+## Search visibility
+- Homepage includes a descriptive title, meta description, canonical URL, and social-sharing metadata.
+- `sitemap.xml` lists the public homepage; submit `sitemap.xml` in Google Search Console after deploying.
+- `robots.txt` allows crawling and references the sitemap.
+- The homepage includes useful product information, FAQs, and WebApplication structured data.
+- Search indexing and ranking are controlled by search engines and are not guaranteed.
