@@ -27,3 +27,9 @@ Tasks stay in the current browser's localStorage and do not sync between devices
 - `robots.txt` allows crawling and references the sitemap.
 - The homepage includes useful product information, FAQs, and WebApplication structured data.
 - Search indexing and ranking are controlled by search engines and are not guaranteed.
+
+## Productivity shortcuts
+- Press `N` outside an input to create a task.
+- Press `/` outside an input to focus task search.
+- Press `?` outside an input to show the shortcut hint.
+- If DayPilot is open in multiple tabs for the same browser storage, task updates are reflected across tabs.
