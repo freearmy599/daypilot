@@ -23,7 +23,7 @@ document.addEventListener("keydown",e=>{
  if(e.altKey||e.ctrlKey||e.metaKey)return;
  const tag=e.target?.tagName?.toLowerCase(),typing=["input","textarea","select"].includes(tag)||e.target?.isContentEditable;
  if(e.key==="Escape")return;
- if(typing)return;
+ if(typing||document.querySelector("dialog[open]"))return;
  if(e.key.toLowerCase()==="n"){e.preventDefault();openDialog();return}
  if(e.key==="/"){e.preventDefault();$("#searchInput").focus();return}
  if(e.key==="?"){e.preventDefault();toast("Shortcuts: N = new task · / = search");return}
@@ -35,7 +35,7 @@ window.addEventListener("storage",e=>{
  try{
   const s=JSON.parse(e.newValue);
   if(s?.version!==1||!Array.isArray(s.tasks))return;
-  state={version:1,goal:Number.isInteger(s.goal)&&s.goal>0&&s.goal<=50?s.goal:3,tasks:s.tasks.filter(t=>t&&typeof t.id==="string"&&typeof t.title==="string"&&/^\\d{4}-\\d{2}-\\d{2}$/.test(t.date)&&["low","medium","high"].includes(t.priority)&&typeof t.createdAt==="number")};
+  state={version:1,goal:Number.isInteger(s.goal)&&s.goal>0&&s.goal<=50?s.goal:3,tasks:s.tasks.filter(t=>t&&typeof t.id==="string"&&typeof t.title==="string"&&/^\d{4}-\d{2}-\d{2}$/.test(t.date)&&["low","medium","high"].includes(t.priority)&&typeof t.createdAt==="number")};
   render();toast("Updated from another DayPilot tab");
  }catch{}
 });
