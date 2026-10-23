@@ -6,7 +6,7 @@ A polished, mobile-friendly daily planner built with plain HTML, CSS, and JavaSc
 - Task creation, editing, completion, and deletion
 - Due dates, optional times, priorities, and notes
 - Today, Upcoming, and Completed views
-- Search, priority filtering, and sorting
+- Search, priority and overdue filtering, and sorting
 - Daily goal and progress tracking
 - Local browser storage and JSON backup import/export
 - Responsive design; no login, backend, or paid APIs
@@ -32,4 +32,6 @@ Tasks stay in the current browser's localStorage and do not sync between devices
 - Press `N` outside an input to create a task.
 - Press `/` outside an input to focus task search.
 - Press `?` outside an input to show the shortcut hint.
+- Use the `Overdue` filter to quickly find unfinished tasks dated before today.
+- Task action controls include task-specific accessible labels.
 - If DayPilot is open in multiple tabs for the same browser storage, task updates are reflected across tabs.
