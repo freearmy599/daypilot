@@ -2,9 +2,12 @@
 const KEY="daypilot.v1.state", $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
 const today=()=>{let d=new Date();return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
 const validDate=s=>{if(typeof s!=="string"||s.length!==10||s[4]!=="-"||s[7]!=="-")return false;const [y,m,d]=s.split("-").map(Number);if(!Number.isInteger(y)||!Number.isInteger(m)||!Number.isInteger(d))return false;const x=new Date(y,m-1,d,12);return x.getFullYear()===y&&x.getMonth()===m-1&&x.getDate()===d};
+const validTask=t=>!!t&&typeof t.id==="string"&&!!t.id.trim()&&typeof t.title==="string"&&!!t.title.trim()&&t.title.length<=120&&validDate(t.date)&&["low","medium","high"].includes(t.priority)&&typeof t.createdAt==="number"&&Number.isFinite(t.createdAt)&&(!("time" in t)||t.time===""||(typeof t.time==="string"&&/^([01]\d|2[0-3]):[0-5]\d$/.test(t.time)))&&(!("notes" in t)||(typeof t.notes==="string"&&t.notes.length<=500))&&(!("completed" in t)||typeof t.completed==="boolean")&&(!("completedAt" in t)||t.completedAt===null||(typeof t.completedAt==="number"&&Number.isFinite(t.completedAt)));
+const validTaskList=tasks=>{if(!Array.isArray(tasks))return false;const ids=new Set();return tasks.every(t=>{if(!validTask(t)||ids.has(t.id))return false;ids.add(t.id);return true})};
+const cleanTasks=tasks=>tasks.filter(validTask).filter((t,i,a)=>a.findIndex(x=>x.id===t.id)===i).map(t=>({...t,completed:t.completed===true,completedAt:t.completedAt??null,time:t.time||"",notes:t.notes||""}));
 const id=()=>crypto.randomUUID?.()||"task-"+Date.now()+"-"+Math.random().toString(16).slice(2);
 let state={version:1,goal:3,tasks:[]},view="today",filter="all",editing=null,toastTimer;
-try{let s=JSON.parse(localStorage.getItem(KEY));if(s?.version===1&&Array.isArray(s.tasks)){state={version:1,goal:Number.isInteger(s.goal)&&s.goal>0&&s.goal<=50?s.goal:3,tasks:s.tasks.filter(t=>t&&typeof t.id==="string"&&typeof t.title==="string"&&validDate(t.date)&&["low","medium","high"].includes(t.priority)&&typeof t.createdAt==="number")}}}catch{}
+try{let s=JSON.parse(localStorage.getItem(KEY));if(s?.version===1&&validTaskList(s.tasks)){state={version:1,goal:Number.isInteger(s.goal)&&s.goal>0&&s.goal<=50?s.goal:3,tasks:cleanTasks(s.tasks)}}}catch{}
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(state));return true}catch{toast("Could not save: browser storage is unavailable.");return false}};
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
 const past=t=>t.date<today(),isToday=t=>t.date===today(),open=t=>!t.completed;
@@ -35,8 +38,8 @@ window.addEventListener("storage",e=>{
  if(!e.newValue){state={version:1,goal:3,tasks:[]};render();toast("Tasks cleared in another tab");return}
  try{
   const s=JSON.parse(e.newValue);
-  if(s?.version!==1||!Array.isArray(s.tasks))return;
-  state={version:1,goal:Number.isInteger(s.goal)&&s.goal>0&&s.goal<=50?s.goal:3,tasks:s.tasks.filter(t=>t&&typeof t.id==="string"&&typeof t.title==="string"&&validDate(t.date)&&["low","medium","high"].includes(t.priority)&&typeof t.createdAt==="number")};
+  if(s?.version!==1||!validTaskList(s.tasks))return;
+  state={version:1,goal:Number.isInteger(s.goal)&&s.goal>0&&s.goal<=50?s.goal:3,tasks:cleanTasks(s.tasks)};
   render();toast("Updated from another DayPilot tab");
  }catch{}
 });
