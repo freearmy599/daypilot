@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://daypilot-64n.pages.dev/sitemap.xml
