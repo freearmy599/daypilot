@@ -6,13 +6,16 @@ A polished, mobile-friendly daily planner built with plain HTML, CSS, and JavaSc
 - Task creation, editing, completion, and deletion
 - Due dates, optional times, priorities, and notes
 - Today, Upcoming, and Completed views
-- Search, priority and overdue filtering, and sorting
+- Search with one-tap clear, priority and overdue filtering, and sorting
 - Daily goal and progress tracking
 - Local browser storage and JSON backup import/export
 - Responsive design; no login, backend, or paid APIs
 
 ## Run locally
 Open `index.html` in a modern browser. Optionally run `python -m http.server 8000` and visit `http://localhost:8000`.
+
+## Tests
+Run the dependency-free smoke tests with `node --test tests/smoke.test.mjs` in a recent Node.js installation.
 
 ## Privacy
 Tasks stay in the current browser's localStorage and do not sync between devices. Export backups periodically.
