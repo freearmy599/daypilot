@@ -48,3 +48,10 @@ test("mobile layout keeps task editing and deletion controls available", () => {
 test("backup download URL is kept alive briefly for browser download startup", () => {
   assert.match(app, /a\.click\(\);setTimeout\(\(\)=>URL\.revokeObjectURL\(u\),1000\)/);
 });
+
+test("homepage provides a keyboard skip link to the main content", async () => {
+  const css = await readFile(new URL("../styles.css", import.meta.url), "utf8");
+  assert.match(html, /class=["']skip-link["'] href=["']#mainContent["']/);
+  assert.match(html, /<main class=["']main-content["'] id=["']mainContent["']/);
+  assert.match(css, /\.skip-link:focus\s*\{/);
+});
