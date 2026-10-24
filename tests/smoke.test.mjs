@@ -89,3 +89,19 @@ test("date-sensitive task status refreshes when the app returns to view", () => 
   assert.match(app, /document\.addEventListener\(\"visibilitychange\"/);
   assert.match(app, /window\.addEventListener\(\"focus\",refreshDateContext\)/);
 });
+
+
+test("Escape and other native close paths restore task-dialog focus", () => {
+  assert.match(app, /\$\("#taskDialog"\)\.addEventListener\("close"/);
+  assert.match(app, /function closeDialog\(\)\{\$\("#taskDialog"\)\.close\(\)\}/);
+});
+
+test("daily goal editor focuses its field and restores the opener on close", () => {
+  assert.match(app, /goalReturnFocus=document\.activeElement/);
+  assert.match(app, /\$\("#dailyGoalInput"\)\.focus\(\)/);
+  assert.match(app, /\$\("#goalDialog"\)\.addEventListener\("close"/);
+});
+
+test("keyboard shortcut hint documents its own help shortcut", () => {
+  assert.match(app, /Shortcuts: N = new task · \/ = search · \? = this help/);
+});
