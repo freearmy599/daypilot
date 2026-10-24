@@ -65,3 +65,11 @@ test("search results can be cleared with a keyboard-accessible control", () => {
   assert.match(app, /\$\("#clearSearchBtn"\)\.hidden=!hasSearch/);
   assert.match(app, /\$\("#clearSearchBtn"\)\.onclick=\(\)=>\{\$\("#searchInput"\)\.value="";render\(\);\$\("#searchInput"\)\.focus\(\)\}/);
 });
+
+test("brand identity has a custom SVG favicon and consistent responsive mark", async () => {
+  const favicon = await readFile(new URL("../favicon.svg", import.meta.url), "utf8");
+  assert.match(html, /rel=["\x27]icon["\x27][^>]*href=["\x27]favicon\.svg["\x27]/);
+  assert.match(html, /class=["\x27]brand-mark["\x27][^>]*><svg viewBox=/);
+  assert.match(html, /DayPilot — Make Space for What Matters/);
+  assert.match(favicon, /<svg[^>]*viewBox=["\x27]0 0 48 48/);
+});
