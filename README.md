@@ -1,5 +1,7 @@
 # DayPilot
 
+**Make space for what matters.** DayPilot is a calm, focused daily planner built around clarity, small wins, and keeping your tasks on your own device.
+
 A polished, mobile-friendly daily planner built with plain HTML, CSS, and JavaScript.
 
 ## Features
@@ -21,7 +23,8 @@ Run the dependency-free smoke tests with `node --test tests/smoke.test.mjs` in a
 Tasks stay in the current browser's localStorage and do not sync between devices. Export backups periodically.
 
 ## Files
-- `index.html` — page structure
+- `index.html` — page structure and brand metadata
+- `favicon.svg` — lightweight custom DayPilot compass-star mark
 - `styles.css` — responsive styling
 - `app.js` — application logic
 ## Search visibility
