@@ -73,3 +73,19 @@ test("brand identity has a custom SVG favicon and consistent responsive mark", a
   assert.match(html, /DayPilot — Make Space for What Matters/);
   assert.match(favicon, /<svg[^>]*viewBox=["\x27]0 0 48 48/);
 });
+
+
+test("upcoming tasks are sorted by calendar date before due time", () => {
+  assert.match(app, /view===\"upcoming\"&&x\.date!==y\.date\?x\.date\.localeCompare\(y\.date\)/);
+  assert.match(app, /view===\"upcoming\"\?x\.date\.localeCompare\(y\.date\):0/);
+});
+
+test("closing the task dialog restores keyboard focus to its opener", () => {
+  assert.match(app, /dialogReturnFocus=document\.activeElement/);
+  assert.match(app, /dialogReturnFocus\?\.isConnected\)dialogReturnFocus\.focus\(\)/);
+});
+
+test("date-sensitive task status refreshes when the app returns to view", () => {
+  assert.match(app, /document\.addEventListener\(\"visibilitychange\"/);
+  assert.match(app, /window\.addEventListener\(\"focus\",refreshDateContext\)/);
+});
