@@ -1,22 +1,23 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#101820">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0d151c">
 <meta name="description" content="Plan your day with DayPilot, a free daily planner and to-do list. Organize tasks, set priorities, track goals, and keep your data on your device.">
-<title>DayPilot — Free Daily Planner &amp; To-Do List</title><link rel="canonical" href="https://daypilot-64n.pages.dev/">
+<title>DayPilot — Make Space for What Matters</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"><link rel="canonical" href="https://daypilot-64n.pages.dev/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="DayPilot — Free Daily Planner &amp; To-Do List">
-<meta property="og:description" content="Organize tasks, set priorities, and track your daily goals with a simple planner that keeps your data on your device.">
+<meta property="og:title" content="DayPilot — Make Space for What Matters">
+<meta property="og:description" content="A calm, focused daily planner for your priorities, plans, and small wins. Free to use, with your tasks saved on your device.">
 <meta property="og:url" content="https://daypilot-64n.pages.dev/">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="styles.css">
   <meta name="google-adsense-account" content="ca-pub-6062724999261135">
   <meta name="google-site-verification" content="PX1GUx4n5IMrOn5YxaKtNA2Q8w2ufkbp3Yto3KL2KlU" />
 </head><body><a class="skip-link" href="#mainContent">Skip to main content</a><div class="app-shell">
-<aside class="sidebar" aria-label="Main navigation"><a class="brand" href="#"><span class="brand-mark">✳</span><span><strong>DayPilot</strong><small>YOUR DAY, UNDER CONTROL</small></span></a>
+<aside class="sidebar" aria-label="Main navigation"><a class="brand" href="#"><span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 5.5 23.4 16.6 34.5 20 23.4 23.4 20 34.5 16.6 23.4 5.5 20 16.6 16.6Z" fill="currentColor"/><circle cx="20" cy="20" r="4.2" fill="#0d1b20"/></svg></span><span><strong>DayPilot</strong><small>YOUR DAY, UNDER CONTROL</small></span></a>
 <div class="nav-label">WORKSPACE</div><button class="nav-item active" data-view="today">◷ Today <span class="nav-count" id="todayNavCount">0</span></button><button class="nav-item" data-view="upcoming">▦ Upcoming</button><button class="nav-item" data-view="completed">✓ Completed</button>
 <div class="sidebar-bottom"><div class="local-note"><span class="status-dot"></span><span><strong>Your space, your data</strong><small>Saved privately in this browser</small></span></div><button class="text-button" id="exportBtn">↓ Export backup</button><label class="text-button import-label" for="importInput">↑ Import backup</label><input id="importInput" type="file" accept="application/json,.json" hidden></div></aside>
-<main class="main-content" id="mainContent"><header class="topbar"><div class="mobile-brand"><span class="brand-mark">✳</span><strong>DayPilot</strong></div><div class="topbar-date" id="topDate"></div><button class="avatar" id="todayShortcut" title="Go to today" aria-label="Go to today">DP</button></header>
+<main class="main-content" id="mainContent"><header class="topbar"><a class="mobile-brand" href="#" aria-label="DayPilot home"><span class="brand-mark"><svg viewBox="0 0 40 40" aria-hidden="true" focusable="false"><path d="M20 5.5 23.4 16.6 34.5 20 23.4 23.4 20 34.5 16.6 23.4 5.5 20 16.6 16.6Z" fill="currentColor"/><circle cx="20" cy="20" r="4.2" fill="#0d1b20"/></svg></span><strong>DayPilot</strong></a><div class="topbar-date" id="topDate"></div><button class="avatar" id="todayShortcut" title="Go to today" aria-label="Go to today">DP</button></header>
 <section class="welcome"><div><p class="eyebrow" id="greeting">YOUR DAILY WORKSPACE</p><h1 id="pageTitle">Make today count<span>.</span></h1><p class="subtitle" id="pageSubtitle">A clear plan. One task at a time.</p></div><button class="primary-button" id="addTaskTop"><span>＋</span> Add task</button></section>
 <section class="stats-grid" aria-label="Daily progress"><article class="stat-card"><div class="stat-heading"><span>Tasks completed</span><span class="stat-icon">✓</span></div><div class="stat-value"><span id="completedStat">0</span><span class="stat-divider">/</span><span class="stat-total" id="totalStat">0</span></div><div class="stat-foot" id="completedFoot">Start with one small win</div><div class="mini-progress"><span id="taskProgressBar"></span></div></article>
 <article class="stat-card"><div class="stat-heading"><span>Daily progress</span><span class="stat-icon">◎</span></div><div class="stat-value"><span id="progressStat">0</span><span class="stat-unit">%</span></div><div class="stat-foot" id="progressFoot">Every step counts</div><div class="mini-progress"><span id="overallProgressBar"></span></div></article>
