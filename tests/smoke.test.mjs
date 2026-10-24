@@ -55,3 +55,7 @@ test("homepage provides a keyboard skip link to the main content", async () => {
   assert.match(html, /<main class=["']main-content["'] id=["']mainContent["']/);
   assert.match(css, /\.skip-link:focus\s*\{/);
 });
+
+test("backup import rejects oversized files before reading them", () => {
+  assert.match(app, /if\(f\.size>5\*1024\*1024\)throw 0;let d=JSON\.parse\(await f\.text\(\)\)/);
+});
