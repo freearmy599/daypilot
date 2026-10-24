@@ -21,7 +21,7 @@ test("backup import has size and field validation safeguards", () => {
   assert.match(app, /d\.tasks\.length>10000/);
   assert.match(app, /new Set\(\)/);
   assert.match(app, /confirm\(["']Import/);
-  assert.match(app, /Could not import backup/);
+  assert.match(app, /That backup file is invalid or unreadable/);
 });
 
 test("failed writes restore the previous task state", () => {
