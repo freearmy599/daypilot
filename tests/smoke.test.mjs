@@ -35,3 +35,12 @@ test("all primary UI assets are linked from the homepage", () => {
   assert.match(html, /id=["']taskList["']/);
   assert.match(html, /id=["']taskForm["']/);
 });
+
+test("mobile layout keeps task editing and deletion controls available", () => {
+  const css = readFile(new URL("../styles.css", import.meta.url), "utf8");
+  return css.then(source => {
+    assert.match(source, /@media\s*\(max-width:\s*700px\)/);
+    assert.match(source, /\.task-actions \.edit-task\s*\{[^}]*display:\s*inline-flex/s);
+    assert.match(source, /\.task-actions \.delete-task\s*\{[^}]*min-width:\s*36px/s);
+  });
+});
