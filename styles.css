@@ -18,3 +18,12 @@
 .clear-search{border:0;background:transparent;color:var(--muted);font-size:18px;line-height:1;min-width:28px;min-height:28px;border-radius:6px;padding:2px;flex-shrink:0}
 .clear-search:hover{background:#263640;color:var(--cyan)}
 .clear-search:focus-visible{outline:2px solid var(--cyan);outline-offset:1px}
+
+/* DayPilot brand system: a compact compass-star mark and consistent wordmark. */
+.brand-mark{display:grid;place-items:center;flex:0 0 auto;box-shadow:0 5px 18px #00c9d71c}
+.brand-mark svg{display:block;width:25px;height:25px}
+.brand strong{letter-spacing:-.45px;font-weight:780}
+.brand small{letter-spacing:1.35px}
+.mobile-brand{color:var(--text);text-decoration:none;cursor:pointer}
+.mobile-brand .brand-mark{border-radius:10px}
+.mobile-brand .brand-mark svg{width:20px;height:20px}
