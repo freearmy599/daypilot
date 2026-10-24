@@ -44,3 +44,7 @@ test("mobile layout keeps task editing and deletion controls available", () => {
     assert.match(source, /\.task-actions \.delete-task\s*\{[^}]*min-width:\s*36px/s);
   });
 });
+
+test("backup download URL is kept alive briefly for browser download startup", () => {
+  assert.match(app, /a\.click\(\);setTimeout\(\(\)=>URL\.revokeObjectURL\(u\),1000\)/);
+});
