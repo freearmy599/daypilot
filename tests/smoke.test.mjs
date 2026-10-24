@@ -59,3 +59,9 @@ test("homepage provides a keyboard skip link to the main content", async () => {
 test("backup import rejects oversized files before reading them", () => {
   assert.match(app, /if\(f\.size>5\*1024\*1024\)throw 0;let d=JSON\.parse\(await f\.text\(\)\)/);
 });
+
+test("search results can be cleared with a keyboard-accessible control", () => {
+  assert.match(html, /id=["\x27]clearSearchBtn["\x27][^>]*aria-label=["\x27]Clear search["\x27]/);
+  assert.match(app, /\$\("#clearSearchBtn"\)\.hidden=!hasSearch/);
+  assert.match(app, /\$\("#clearSearchBtn"\)\.onclick=\(\)=>\{\$\("#searchInput"\)\.value="";render\(\);\$\("#searchInput"\)\.focus\(\)\}/);
+});
