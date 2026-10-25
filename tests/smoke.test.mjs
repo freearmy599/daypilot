@@ -76,7 +76,7 @@ test("brand identity has a custom SVG favicon and consistent responsive mark", a
 
 
 test("due-time sorting respects calendar dates before comparing times", () => {
-  assert.match(app, /sort===\\"time\\"\?\(x\.date!==y\.date\?x\.date\.localeCompare\(y\.date\):\(x\.time\|\|\\"99:99\\"\)\.localeCompare\(y\.time\|\|\\"99:99\\"\)\)/);
+  assert.ok(app.includes('sort==="time"?(x.date!==y.date?x.date.localeCompare(y.date):(x.time||"99:99").localeCompare(y.time||"99:99"))'));
 });
 
 test("closing the task dialog restores keyboard focus to its opener", () => {
