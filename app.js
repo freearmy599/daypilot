@@ -30,7 +30,7 @@ document.addEventListener("keydown",e=>{
  if(typing||document.querySelector("dialog[open]"))return;
  if(e.key.toLowerCase()==="n"){e.preventDefault();openDialog();return}
  if(e.key==="/"){e.preventDefault();$("#searchInput").focus();return}
- if(e.key==="?"){e.preventDefault();toast("Shortcuts: N = new task · / = search · ? = this help");return}
+ if(e.key==="?"){e.preventDefault();toast("Keyboard shortcuts — N: new task · /: focus search · Esc: close an open dialog");return}
 });
  // Keep separate open DayPilot tabs in sync when browser storage changes.
 window.addEventListener("storage",e=>{
