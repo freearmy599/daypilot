@@ -37,7 +37,7 @@ Tasks stay in the current browser's localStorage and do not sync between devices
 ## Productivity shortcuts
 - Press `N` outside an input to create a task.
 - Press `/` outside an input to focus task search.
-- Press `?` outside an input to show the shortcut hint.
+- Press `?` outside an input to show the keyboard shortcut guide.
 - Use the `Overdue` filter to quickly find unfinished tasks dated before today.
 - Task action controls include task-specific accessible labels.
 - If DayPilot is open in multiple tabs for the same browser storage, task updates are reflected across tabs.
