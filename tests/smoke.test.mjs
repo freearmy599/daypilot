@@ -139,3 +139,11 @@ test("task list announces the number of visible results", () => {
   assert.match(html, /id="resultsCount" aria-live="polite"/);
   assert.match(app, /\$\("#resultsCount"\)\.textContent=tasks\.length\+" "\+\(tasks\.length===1\?"task":"tasks"\)\+" shown"/);
 });
+
+test("completed-task cleanup is limited to completed view and protects state on save failure", () => {
+  assert.match(html, /id="clearCompletedBtn" hidden/);
+  assert.match(app, /\$\("#clearCompletedBtn"\)\.hidden=view!==\"completed\"\|\|!state\.tasks\.some\(t=>t\.completed\)/);
+  assert.match(app, /Permanently remove \"\+count\+\" completed/);
+  assert.match(app, /state\.tasks=state\.tasks\.filter\(t=>!t\.completed\)/);
+  assert.match(app, /if\(!save\(\)\)\{state\.tasks=previousTasks;render\(\);return\}render\(\);toast\(count/);
+});
