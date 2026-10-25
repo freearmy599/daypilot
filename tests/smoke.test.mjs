@@ -124,3 +124,13 @@ test("long task metadata can wrap on narrow screens", async () => {
   const css = await readFile(new URL("../styles.css", import.meta.url), "utf8");
   assert.match(css, /\.task-meta>span\{overflow-wrap:anywhere;min-width:0\}/);
 });
+
+test("task form offers quick date presets and live character counters", () => {
+  assert.match(html, /data-date-offset="0">Today/);
+  assert.match(html, /data-date-offset="1">Tomorrow/);
+  assert.match(html, /data-date-offset="7">Next week/);
+  assert.match(html, /id="titleCount"/);
+  assert.match(html, /id="notesCount"/);
+  assert.match(app, /function updateCounters\(\)/);
+  assert.match(app, /\$\$\("\.date-presets button"\)\.forEach/);
+});
