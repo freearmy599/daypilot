@@ -6,7 +6,8 @@ A polished, mobile-friendly daily planner built with plain HTML, CSS, and JavaSc
 
 ## Features
 - Task creation, editing, completion, and deletion
-- Due dates, optional times, priorities, and notes
+- Due dates with quick Today/Tomorrow/Next week choices, optional times, priorities, and notes
+- Live task-title and note character counters
 - Today, Upcoming, and Completed views
 - Search with one-tap clear, priority and overdue filtering, and sorting
 - Daily goal and progress tracking
