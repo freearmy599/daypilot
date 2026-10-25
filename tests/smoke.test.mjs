@@ -147,3 +147,13 @@ test("completed-task cleanup is limited to completed view and protects state on 
   assert.match(app, /state\.tasks=state\.tasks\.filter\(t=>!t\.completed\)/);
   assert.match(app, /if\(!save\(\)\)\{state\.tasks=previousTasks;render\(\);return\}render\(\);toast\(count/);
 });
+
+test("focus timer exposes start, pause, reset, and completion behavior", () => {
+  for (const id of ["focusTime", "focusStartBtn", "focusResetBtn", "focusStatus"]) assert.match(html, new RegExp(`id="${id}"`));
+  assert.match(html, /role="timer"/);
+  assert.match(app, /focusRemaining=25\*60/);
+  assert.match(app, /function tickFocus\(\)/);
+  assert.match(app, /focusRunning\?"Pause":"Start focus"/);
+  assert.match(app, /\$\("#focusResetBtn"\)\.onclick=\(\)=>\{stopFocus\(\);focusRemaining=25\*60;paintFocus\(\)\}/);
+  assert.match(app, /Focus session complete/);
+});
