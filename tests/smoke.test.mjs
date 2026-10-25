@@ -102,6 +102,7 @@ test("daily goal editor focuses its field and restores the opener on close", () 
   assert.match(app, /\$\("#goalDialog"\)\.addEventListener\("close"/);
 });
 
-test("keyboard shortcut hint documents its own help shortcut", () => {
-  assert.match(app, /Shortcuts: N = new task · \/ = search · \? = this help/);
+test("keyboard help shortcut shows actionable guidance instead of repeating its trigger", () => {
+  assert.match(app, /Keyboard shortcuts — N: new task · \/: focus search · Esc: close an open dialog/);
+  assert.doesNotMatch(app, /Shortcuts: N = new task · \/ = search · \? = this help/);
 });
