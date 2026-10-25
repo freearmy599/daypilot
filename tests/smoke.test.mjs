@@ -157,3 +157,15 @@ test("focus timer exposes start, pause, reset, and completion behavior", () => {
   assert.match(app, /\$\("#focusResetBtn"\)\.onclick=\(\)=>\{stopFocus\(\);focusRemaining=25\*60;paintFocus\(\)\}/);
   assert.match(app, /Focus session complete/);
 });
+
+
+test("calendar view has month controls and date-specific task filtering", () => {
+  assert.match(html, /data-view="calendar">▤ Calendar/);
+  assert.match(html, /id="calendarGrid"/);
+  assert.match(html, /id="calendarPrev"/);
+  assert.match(html, /id="calendarNext"/);
+  assert.match(app, /function renderCalendar\(\)/);
+  assert.match(app, /view==="calendar"\?state\.tasks\.filter\(t=>t\.date===calendarSelected\)/);
+  assert.match(app, /data-calendar-date=/);
+  assert.match(app, /\$\("#calendarToday"\)\.onclick/);
+});
