@@ -38,3 +38,6 @@
 
 /* Destructive bulk action is quieter than the primary create-task action. */
 .clear-completed{padding:8px 11px;font-size:11px;white-space:nowrap;border-color:#4a3a3d;color:#ffb4b9}.clear-completed:hover{border-color:var(--red);color:var(--red)}.clear-completed[hidden]{display:none}@media(max-width:700px){.clear-completed{padding:8px;font-size:10px}}
+
+/* Built-in focus timer: clear hierarchy without overpowering the task list. */
+.focus-panel{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:24px;margin:2px 0 4px;padding:22px 24px;border:1px solid #29434c;border-radius:16px;background:linear-gradient(115deg,#14262f,#17232d 68%)}.focus-copy h2{font-size:17px;margin:5px 0}.focus-copy p:last-child{color:var(--muted);font-size:12px;margin:6px 0 0;max-width:460px}.focus-controls{text-align:center;min-width:210px}.focus-time{font-size:38px;font-weight:800;letter-spacing:1px;font-variant-numeric:tabular-nums;color:var(--cyan);line-height:1.2}.focus-buttons{display:flex;justify-content:center;gap:8px;margin-top:10px}.focus-buttons button{padding:8px 12px}.focus-status{font-size:10px;color:var(--muted);margin:8px 0 0}.focus-panel .eyebrow{margin-bottom:5px}@media(max-width:700px){.focus-panel{grid-template-columns:1fr;gap:16px;padding:18px}.focus-controls{min-width:0}.focus-time{font-size:34px}.focus-copy h2{font-size:16px}}
