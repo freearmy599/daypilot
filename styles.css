@@ -27,3 +27,6 @@
 .mobile-brand{color:var(--text);text-decoration:none;cursor:pointer}
 .mobile-brand .brand-mark{border-radius:10px}
 .mobile-brand .brand-mark svg{width:20px;height:20px}
+
+/* Let long task notes wrap instead of pushing the card beyond the viewport. */
+.task-meta>span{overflow-wrap:anywhere;min-width:0}
