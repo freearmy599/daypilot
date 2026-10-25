@@ -106,4 +106,10 @@ test("keyboard help shortcut shows actionable guidance instead of repeating its 
   assert.match(app, /Keyboard shortcuts — N: new task · \/: focus search · Esc: close an open dialog/);
   assert.doesNotMatch(app, /Shortcuts: N = new task · \/ = search · \? = this help/);
 });
-\ntest("mobile task controls meet a 44px touch target and SEO section aligns with sidebar", async () => {\n  const css = await readFile(new URL("../styles.css", import.meta.url), "utf8");\n  assert.match(css, /\.task-actions \.edit-task\{[^}]*min-width:44px;min-height:44px\}/);\n  assert.match(css, /\.task-actions \.delete-task\{min-width:44px;min-height:44px\}/);\n  assert.match(css, /\.seo-content\{[^}]*margin-left:246px\}/);\n});\n
+
+test("mobile task controls meet a 44px touch target and SEO section aligns with sidebar", async () => {
+  const css = await readFile(new URL("../styles.css", import.meta.url), "utf8");
+  assert.match(css, /\.task-actions \.edit-task\{[^}]*min-width:44px;min-height:44px\}/);
+  assert.match(css, /\.task-actions \.delete-task\{min-width:44px;min-height:44px\}/);
+  assert.match(css, /\.seo-content\{[^}]*margin-left:246px\}/);
+});
