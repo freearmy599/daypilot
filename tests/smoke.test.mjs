@@ -134,3 +134,8 @@ test("task form offers quick date presets and live character counters", () => {
   assert.match(app, /function updateCounters\(\)/);
   assert.match(app, /\$\$\("\.date-presets button"\)\.forEach/);
 });
+
+test("task list announces the number of visible results", () => {
+  assert.match(html, /id="resultsCount" aria-live="polite"/);
+  assert.match(app, /\$\("#resultsCount"\)\.textContent=tasks\.length\+" "\+\(tasks\.length===1\?"task":"tasks"\)\+" shown"/);
+});
