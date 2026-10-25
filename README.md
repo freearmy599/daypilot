@@ -11,6 +11,7 @@ A polished, mobile-friendly daily planner built with plain HTML, CSS, and JavaSc
 - Today, Upcoming, and Completed views, with confirmed bulk cleanup for completed tasks
 - Search with one-tap clear, priority and overdue filtering, and sorting
 - Daily goal and progress tracking
+- Built-in 25-minute focus timer with start, pause, reset, and completion notification
 - Local browser storage and JSON backup import/export
 - Responsive design; no login, backend, or paid APIs
 
